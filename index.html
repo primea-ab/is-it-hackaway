@@ -16,6 +16,9 @@
                 transform: translate(-50%, -50%);
                 text-align: center;
             }
+            .but-in {
+                font-size: 40px;
+            }
         </style>
     </head>
     <body>
@@ -23,6 +26,8 @@
             <h1 style="font-size: 3em;">Is it Hackaway yet?</h1>
             <h2 id="not-hackaway">Nope 🙁</h2>
             <h2 id="is-hackaway">Yep, woop woop! 🇭🇷</h2>
+            <p class="but-in">But in </p>
+            <h2 class="but-in" id="count-down"></h2>
         </div>
     </body>
     <script>
@@ -48,5 +53,16 @@
             
         }
         checkDate()
+        const countDownDate = new Date("Oct 14, 2024 19:45:25").getTime();
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("count-down").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+        }, 1000)
     </script>
 </html>
